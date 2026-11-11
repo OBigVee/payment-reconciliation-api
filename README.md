@@ -1,6 +1,6 @@
 # Payment Reconciliation API
 
-First milestone for a C# payment reconciliation portfolio project. The API records simulated payments in PostgreSQL using ASP.NET Core and EF Core. New records start in the pending state.
+The API records simulated payments in PostgreSQL using ASP.NET Core and EF Core. New records start in the pending state.
 
 ## Run locally
 
@@ -36,4 +36,4 @@ Expect HTTP 201 and a Location header. Use the returned ID to read the saved rec
 curl -i 'http://localhost:5080/payments/<payment-id>'
 ```
 
-Next milestone is a simulated provider webhook and integration tests for status updates and duplicate events.
+it will use simulated provider webhook and integration tests for status updates and duplicate events.
