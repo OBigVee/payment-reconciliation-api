@@ -50,7 +50,7 @@ sequenceDiagram
 | Unknown payment ID | `404 Not Found` |
 | Invalid event ID, payment ID, or status | `400 Bad Request` |
 
-PostgreSQL enforces uniqueness on the event ID, including when two deliveries arrive concurrently. The event insert and status update commit together. If the payment is missing or already final, the API rolls back the insert so the rejected event never appears in the table of applied events. See [the endpoint implementation](Program.cs) and [the integration tests](tests/webhook_integration.py).
+PostgreSQL enforces uniqueness on the event ID, including when two deliveries arrive concurrently. The event insert and status update commit together. If the payment is missing or already final, the API rolls back the insert so the rejected event never appears in the table of applied events. See [the webhook handler](Webhooks/ProviderWebhookHandler.cs) and [the integration tests](tests/webhook_integration.py).
 
 The webhook accepts simulated events for local development. A live provider integration would need signature verification and a mapping from the provider's payment reference to the internal payment ID. Settlement reports are outside this demo's payment-status workflow.
 
